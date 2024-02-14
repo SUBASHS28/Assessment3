@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Coverage Form</title>
+</head>
+<body>
+<h1>Choose the Coverage:</h1>
+<form action="" th:action="@{/saveCoverage/{id}(id=${policy.getId()})}" method="post">
+    Policy Number: <span th:text="${policy.getId()}"></span>
+    <br><br>
+    Coverages: <br><br>
+    <select name="coverages[]" multiple="multiple">
+        <option th:each="coverage: ${coveragesList}" th:value="${coverage.getId()}" th:text="${coverage.getcName()}"></option>
+    </select>
+    <br><br>
+    <input type="submit">
+</form>
+</body>
+</html>
